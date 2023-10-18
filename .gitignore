@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+.git/
+teste*
+parser.out
+parsetab.py
+lexico.py
