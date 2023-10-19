@@ -1,5 +1,6 @@
-from syntax import parse_code
+from syntax import parse_code, print_ast
 from analise_semantica import analise_semantica
+from lexer import gera_tokens
 
 # Códigos de exemplo
 # funciona corretamente 
@@ -29,14 +30,13 @@ x = 2 + 3.0;
 code_4 = """
 
 while 1
-print("'batata frita");
+print("@'batata frita");
 asdf = 2;
-x = y;
 
 endwhile
 
-x = 2;
-y = 3.2;
+x = 22;
+y = 3.2333;
 z = x + y;
 
 """
@@ -51,15 +51,16 @@ z = x + a;
 code_6 = """
 x = 2;
 z = x + a;
-
-
 """
+
 def main():
     code = code_4
     print('Codigo:')
     print(code)
+    #gera_tokens(code) #LÉXICO - PRINTA OS TOKENS NA TELA
     print('Iniciando...')    
     ast, variables = parse_code(code)
+    #print_ast(ast) # SINTÁTIO - PRINTA A ÁRVORE NA TELA
     analise_semantica(ast, variables)
     print("OK")
 
